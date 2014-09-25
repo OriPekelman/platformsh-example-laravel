@@ -39,6 +39,8 @@ return array(
 			'driver'    => $mysql['scheme'],
 			'host'      => $mysql['host'],
 			'database'  => $mysql['path'],
+			'user'  => $mysql['user'],
+			'password'  => $mysql['password'],
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
