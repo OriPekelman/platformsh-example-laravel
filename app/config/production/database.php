@@ -5,18 +5,13 @@ if (!$relationships) {
 }
 
 $relationships = json_decode(base64_decode($relationships), TRUE);
-
+$mysql= array();
 foreach ($relationships['database'] as $endpoint) {
   if (empty($endpoint['query']['is_master'])) {
     continue;
   }
+ $mysql= $endpoint;
 
-  $container->setParameter('database_driver', 'pdo_' . $endpoint['scheme']);
-  $container->setParameter('database_host', $endpoint['host']);
-  $container->setParameter('database_port', $endpoint['port']);
-  $container->setParameter('database_name', $endpoint['path']);
-  $container->setParameter('database_user', $endpoint['username']);
-  $container->setParameter('database_password', $endpoint['password']);
 }
 
 
@@ -41,9 +36,9 @@ return array(
 	'connections' => array(
 
 		'mysql' => array(
-			'driver'    => $endpoint['scheme'],
-			'host'      => $endpoint['host'],
-			'database'  => $endpoint['path'],
+			'driver'    => $mysql['scheme'],
+			'host'      => $mysql['host'],
+			'database'  => $mysql['path'],
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
