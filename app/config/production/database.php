@@ -22,7 +22,7 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'database.internal',
+			'host'      => 'internal.database',
 			'database'  => 'laravel',
 			'username'  => '',
 			'password'  => '',
