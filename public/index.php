@@ -1,4 +1,5 @@
 <?php
+echo "hello";die();
 /**
  * Laravel - A PHP Framework For Web Artisans
  *
