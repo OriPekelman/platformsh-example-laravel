@@ -1,5 +1,4 @@
 <?php
-<?php
 $relationships = getenv("PLATFORM_RELATIONSHIPS");
 if (!$relationships) {
   return;
@@ -49,7 +48,6 @@ return array(
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
 		),
-
 	),
 
 );
