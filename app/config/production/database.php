@@ -22,10 +22,8 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'internal.database',
+			'host'      => 'database.internal',
 			'database'  => 'laravel',
-			'username'  => '',
-			'password'  => '',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
