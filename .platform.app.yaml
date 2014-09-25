@@ -37,6 +37,7 @@ hooks:
         mkdir -p app/storage/meta
         mkdir -p app/storage/logs
         mkdir -p app/storage/sessions
+        php artisan migrate --force
 
 # The configuration of scheduled execution.
 # see http://symfony.com/doc/current/components/console/introduction.html
