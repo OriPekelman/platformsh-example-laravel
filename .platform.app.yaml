@@ -20,7 +20,7 @@ web:
     # The public directory of the app, relative to its root.
     document_root: "/app"
     # The front-controller script to send non-static requests to.
-    passthru: "../server.php"
+    passthru: "/server.php"
     
 
 # The size of the persistent disk of the application (in MB).
