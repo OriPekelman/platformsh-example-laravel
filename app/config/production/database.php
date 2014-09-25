@@ -1,4 +1,25 @@
 <?php
+<?php
+$relationships = getenv("PLATFORM_RELATIONSHIPS");
+if (!$relationships) {
+  return;
+}
+
+$relationships = json_decode(base64_decode($relationships), TRUE);
+
+foreach ($relationships['database'] as $endpoint) {
+  if (empty($endpoint['query']['is_master'])) {
+    continue;
+  }
+
+  $container->setParameter('database_driver', 'pdo_' . $endpoint['scheme']);
+  $container->setParameter('database_host', $endpoint['host']);
+  $container->setParameter('database_port', $endpoint['port']);
+  $container->setParameter('database_name', $endpoint['path']);
+  $container->setParameter('database_user', $endpoint['username']);
+  $container->setParameter('database_password', $endpoint['password']);
+}
+
 
 return array(
 
@@ -21,36 +42,13 @@ return array(
 	'connections' => array(
 
 		'mysql' => array(
-			'driver'    => 'mysql',
-			'host'      => 'database.internal',
-			'database'  => 'laravel',
+			'driver'    => $endpoint['scheme'],
+			'host'      => $endpoint['host'],
+			'database'  => $endpoint['path'],
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
 		),
-        
-    	/*
-    	|--------------------------------------------------------------------------
-    	| Redis Databases
-    	|--------------------------------------------------------------------------
-    	|
-    	| Redis is an open source, fast, and advanced key-value store that also
-    	| provides a richer set of commands than a typical key-value systems
-    	| such as APC or Memcached. Laravel makes it easy to dig right in.
-    	|
-    	*/
-
-    	'redis' => array(
-
-    		'cluster' => false,
-
-    		'default' => array(
-    			'host'     => 'redis.internal',
-    			'port'     => 6379,
-    			'database' => 0,
-    		),
-
-    	)
 
 	),
 
