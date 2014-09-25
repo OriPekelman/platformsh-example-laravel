@@ -34,9 +34,9 @@ mounts:
 # The hooks that will be performed when the package is deployed.
 hooks:
     deploy: |
-        mkdir app/storage/meta
-        mkdir app/storage/logs
-        mkdir app/storage/sessions
+        mkdir -p app/storage/meta
+        mkdir -p app/storage/logs
+        mkdir -p app/storage/sessions
 
 # The configuration of scheduled execution.
 # see http://symfony.com/doc/current/components/console/introduction.html
