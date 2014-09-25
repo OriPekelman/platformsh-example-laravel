@@ -32,8 +32,11 @@ mounts:
     "/app/logs": "shared:files/logs"
     "/app/storage": "shared:files/storage"
 # The hooks that will be performed when the package is deployed.
-#hooks:
-#    build: "./app/console cache:clear --env=prod --no-debug ; ./app/console assetic:dump --env=prod --no-debug"
+hooks:
+    deploy: |
+	mkdir app/storage/meta
+	mkdir app/storage/logs
+	mkdir app/storage/sessions
 
 # The configuration of scheduled execution.
 # see http://symfony.com/doc/current/components/console/introduction.html
