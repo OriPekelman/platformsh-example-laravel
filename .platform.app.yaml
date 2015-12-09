@@ -39,6 +39,7 @@ hooks:
         mkdir -p app/storage/meta
         mkdir -p app/storage/logs
         mkdir -p app/storage/sessions
+        mkdir -p app/storage/views
         php artisan migrate --force
 
 # The configuration of scheduled execution.
