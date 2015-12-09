@@ -39,7 +39,7 @@ return array(
 			'driver'    => $mysql['scheme'],
 			'host'      => $mysql['host'],
 			'database'  => $mysql['path'],
-			'user'  => $mysql['user'],
+			'user'  => $mysql['username'],
 			'password'  => $mysql['password'],
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
